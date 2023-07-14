@@ -266,7 +266,7 @@ main {
             border-radius: 12px 100px 100px 12px;
         }
 
-        &:has(li.active:nth-child(n+2):nth-child(-n+3) a):after {
+        &:has(li.active:nth-child(n+2):nth-child(-n+4) a):after {
             border-radius: 100px
         }
     }

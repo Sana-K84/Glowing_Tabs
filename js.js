@@ -1,24 +1,24 @@
-function inverseMousePosition(element, event) {
-    const rect = element.getBoundingClientRect();
-    const x = event.clientX - rect.left;
-    const y = event.clientY - rect.top;
+// function inverseMousePosition(element, event) {
+//     const rect = element.getBoundingClientRect();
+//     const x = event.clientX - rect.left;
+//     const y = event.clientY - rect.top;
 
-    const res = {
-        x1: -(x - rect.width / 2) / 20, // top left
-        y1: -(y - rect.height / 2) / 20,
-        x2: -(x - rect.width / 2) / 20, // top right
-        y2: (y - rect.height / 2) / 20,
-        x3: (x - rect.width / 2) / 20, // bottom left
-        y3: -(y - rect.height / 2) / 20,
-        x4: (x - rect.width / 2) / 20, // bottom right
-        y4: (y - rect.height / 2) / 20
-    };
+//     const res = {
+//         x1: -(x - rect.width / 2) / 20, // top left
+//         y1: -(y - rect.height / 2) / 20,
+//         x2: -(x - rect.width / 2) / 20, // top right
+//         y2: (y - rect.height / 2) / 20,
+//         x3: (x - rect.width / 2) / 20, // bottom left
+//         y3: -(y - rect.height / 2) / 20,
+//         x4: (x - rect.width / 2) / 20, // bottom right
+//         y4: (y - rect.height / 2) / 20
+//     };
 
-    const resKey =
-        "x" + (x < rect.width / 2 ? 1 : 2) + (y < rect.height / 2 ? 1 : 3);
-    const tilt = res;
-    return tilt !== undefined ? tilt : 0; // default to 0 if undefined
-}
+//     const resKey =
+//         "x" + (x < rect.width / 2 ? 1 : 2) + (y < rect.height / 2 ? 1 : 3);
+//     const tilt = res;
+//     return tilt !== undefined ? tilt : 0; // default to 0 if undefined
+// }
 
 
 
@@ -34,8 +34,8 @@ function handleClick(event) {
     event.target.parentNode.classList.add('active');
 
     nav.style.setProperty('--after-bg-position', offsetLeft);
-    nav.style.setProperty('--after-radial-bg-position', (left + width / 2) - nav.getBoundingClientRect().left);
-    nav.style.setProperty('--after-bg-width', width);
+    // nav.style.setProperty('--after-radial-bg-position', (left + width / 2) - nav.getBoundingClientRect().left);
+    // nav.style.setProperty('--after-bg-width', width);
 }
 
 const nav = document.querySelector('.nav');
@@ -67,3 +67,35 @@ for (let i = 0; i < links.length; i++) {
     nav.style.setProperty('--after-radial-bg-position', 0);
     nav.style.setProperty('--after-bg-width', width);
 }));
+
+
+
+
+
+const tabsTitle = document.querySelectorAll('.tab_title');
+const tabsContent = document.querySelectorAll('.content');
+console.log(tabsTitle)
+
+tabsTitle.forEach(el => el.addEventListener('click', event => {
+    const tabsTitleTarget = event.target.getAttribute('data-tab');
+
+
+
+
+    tabsTitle.forEach(el => el.classList.remove('activ'));
+    if (tabsTitleTarget === 'All') {
+        tabsContent.forEach(el => { el.classList.remove('hidden') });
+
+
+
+    } else { tabsContent.forEach(el => el.classList.add('hidden')); }
+
+
+    el.classList.add('activ')
+    const tabsContentHidden = document.getElementsByClassName(tabsTitleTarget)
+
+    for (elem of tabsContentHidden) {
+        elem.classList.remove('hidden')
+    }
+
+}))
