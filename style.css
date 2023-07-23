@@ -19,7 +19,7 @@ ul li {
 
 .tabs_wrapper {
     width: 560px;
-    display: flex;
+    display: none;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
@@ -102,9 +102,9 @@ ul li {
     display: none;
 } */
 
-.activ {
+/* .activ {
     background: gold;
-}
+} */
 
 .red {
     background: red;

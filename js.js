@@ -26,7 +26,7 @@
 function handleClick(event) {
     const nav = document.querySelector('.nav');
     const target = event.target.parentNode;
-    const width = target.offsetWidth;
+    // const width = target.offsetWidth;
     const { left } = target.getBoundingClientRect();
     const offsetLeft = left - nav.getBoundingClientRect().left;
 
@@ -52,7 +52,7 @@ for (let i = 0; i < links.length; i++) {
     });
 }
 
-['DOMContentLoaded', 'resize'].map(event => window.addEventListener(event, () => {
+['DOMContentLoaded'].map(event => window.addEventListener(event, () => {
 
     const { width, left } = links[0].parentNode.getBoundingClientRect();
     for (let i = 0; i < links.length; i++) {
